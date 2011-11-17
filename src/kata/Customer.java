@@ -54,9 +54,9 @@ class Customer {
 		else return 1;
 	}
 
-	private boolean isSpecialRentalPolicy(Rental each) {
-		return (each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-				&& each.getDaysRented() > 1;
+	private boolean isSpecialRentalPolicy(Rental aRent) {
+		return (aRent.getMovie().getPriceCode() == Movie.NEW_RELEASE)
+				&& aRent.getDaysRented() > 1;
 	}
 
 	
