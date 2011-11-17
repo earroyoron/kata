@@ -49,10 +49,14 @@ class Customer {
 	private int getFrequentRentalPoints(Rental each) {
 		// add frequent renter points
 		// add bonus for a two day new release rental
-		if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-				&& each.getDaysRented() > 1)
+		if (isSpecialRentalPolicy(each))
 			return 2;
 		else return 1;
+	}
+
+	private boolean isSpecialRentalPolicy(Rental each) {
+		return (each.getMovie().getPriceCode() == Movie.NEW_RELEASE)
+				&& each.getDaysRented() > 1;
 	}
 
 	
