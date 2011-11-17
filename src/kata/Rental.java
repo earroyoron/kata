@@ -18,10 +18,10 @@ class Rental {
 	}
 
 	/**
-	 * determine amounts for each line
+	 * determine charge for a rental
 	 * @return
 	 */
-	double amountFor() {
+	double getCharge() {
 		double thisAmount = 0;
 		switch (getMovie().getPriceCode()) {
 		case Movie.REGULAR:

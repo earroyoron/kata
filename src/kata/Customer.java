@@ -50,10 +50,10 @@ class Customer {
 	 * determine amounts for each line
 	 * @param aRental
 	 * @return
-	 * @deprecated Use {@link kata.Rental#amountFor()} instead
+	 * @deprecated Use {@link kata.Rental#getCharge()} instead
 	 */
 	private double amountFor(Rental aRental) {
-		return aRental.amountFor();
+		return aRental.getCharge();
 	}
 }
 
