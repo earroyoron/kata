@@ -26,10 +26,8 @@ class Customer {
 		Enumeration<Rental> rentals = _rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
 		while (rentals.hasMoreElements()) {
-			double thisAmount;	
 			Rental each = (Rental) rentals.nextElement();
-			// determine amounts for each line
-			thisAmount = amountFor(each);
+			double thisAmount = amountFor(each);
 			// add frequent renter points
 			frequentRenterPoints++;
 			// add bonus for a two day new release rental
@@ -49,8 +47,7 @@ class Customer {
 	}
 
 	private double amountFor(Rental each) {
-		double thisAmount;
-		thisAmount = 0;
+		double thisAmount = 0;
 		switch (each.getMovie().getPriceCode()) {
 		case Movie.REGULAR:
 			thisAmount += 2;
