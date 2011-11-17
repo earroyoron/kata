@@ -27,7 +27,6 @@ class Customer {
 		String result = "Rental Record for " + getName() + "\n";
 		while (rentals.hasMoreElements()) {
 			Rental each = (Rental) rentals.nextElement();
-			double thisAmount = each.getCharge();
 			// add frequent renter points
 			frequentRenterPoints++;
 			// add bonus for a two day new release rental
