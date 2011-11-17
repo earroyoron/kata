@@ -27,7 +27,7 @@ class Customer {
 		String result = "Rental Record for " + getName() + "\n";
 		while (rentals.hasMoreElements()) {
 			Rental each = (Rental) rentals.nextElement();
-			double thisAmount = amountFor(each);
+			double thisAmount = each.getCharge();
 			// add frequent renter points
 			frequentRenterPoints++;
 			// add bonus for a two day new release rental
@@ -46,14 +46,6 @@ class Customer {
 		return result;
 	}
 
-	/**
-	 * determine amounts for each line
-	 * @param aRental
-	 * @return
-	 * @deprecated Use {@link kata.Rental#getCharge()} instead
-	 */
-	private double amountFor(Rental aRental) {
-		return aRental.getCharge();
-	}
+	
 }
 
