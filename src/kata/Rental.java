@@ -18,7 +18,7 @@ class Rental {
 	}
 
 	/**
-	 * determine charge for a rental
+	 * determine charge for a rentaleach line
 	 * @return
 	 */
 	double getCharge() {
@@ -39,5 +39,23 @@ class Rental {
 			break;
 		}
 		return thisAmount;
+	}
+
+	/**
+	 * Get frequent rental points
+	 * @param frequentRenterPoints
+	 * @return
+	 */
+	public int getFrequentRentalPoints() {
+		// add frequent renter points
+		// add bonus for a two day new release rental
+		if (isSpecialPointsPolicy())
+			return 2;
+		else return 1;
+	}
+
+	private boolean isSpecialPointsPolicy() {
+		return (getMovie().getPriceCode() == Movie.NEW_RELEASE)
+				&& getDaysRented() > 1;
 	}
 }
