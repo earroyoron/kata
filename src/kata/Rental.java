@@ -49,8 +49,9 @@ class Rental {
 	public int getFrequentRentalPoints() {
 		// add frequent renter points
 		// add bonus for a two day new release rental
-		if (isSpecialPointsPolicy())
+		if (isSpecialPointsPolicy()) {
 			return 2;
+		}
 		else return 1;
 	}
 
