@@ -25,9 +25,7 @@ class Customer {
 		int frequentRenterPoints = 0;
 		
 		String result = "Rental Record for " + getName() + "\n";
-		Enumeration<Rental> rentals = _rentals.elements();
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
+		for (Rental each : _rentals) {
 			frequentRenterPoints += each.getFrequentRentalPoints();
 			// show figures for this rental
 			result += "\t" + each.getMovie().getTitle() + "\t"
