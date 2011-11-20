@@ -22,7 +22,7 @@ class Rental {
 	 * @return
 	 */
 	double getCharge() {
-		return _movie.getCharge(this);
+		return _movie.getCharge(getDaysRented());
 	}
 
 	/**
