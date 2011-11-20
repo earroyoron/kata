@@ -31,18 +31,9 @@ class Rental {
 	 * @return
 	 */
 	public int getFrequentRentalPoints() {
-		// add frequent renter points
-		// add bonus for a two day new release rental
-		if (isSpecialPointsPolicy()) {
-			return 2;
-		}
-		else return 1;
+		return _movie.getFrequentRentalPoints(this);
 	}
 
-	private boolean isSpecialPointsPolicy() {
-		return (getMovie().getPriceCode() == Movie.NEW_RELEASE)
-				&& getDaysRented() > 1;
-	}
 
 	String showFiguresForRental(String result) {
 		result += "\t" + getMovie().getTitle() + "\t"
