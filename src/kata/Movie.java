@@ -15,15 +15,29 @@ public class Movie {
 
 	public Movie(String title, int priceCode) {
 		_title = title;
-		_priceCode = priceCode;
+		setPriceCode(priceCode);
 	}
 
+	public void setPriceCode(Price _price) {
+		myPrice = _price;
+	}
+	
 	public int getPriceCode() {
 		return _priceCode;
 	}
 
-	public void setPriceCode(int arg) {
-		_priceCode = arg;
+	public void setPriceCode(int aPrice) {
+		switch (aPrice) {
+		case Movie.REGULAR:
+			myPrice = new RegularPrice();
+			break;
+		case Movie.NEW_RELEASE:
+			myPrice = new NewReleasePrice();
+			break;
+		case Movie.CHILDRENS:
+			myPrice = new ChildrensPrice();
+			break;
+		}
 	}
 
 	public String getTitle() {
@@ -36,23 +50,7 @@ public class Movie {
 	 * @return
 	 */
 	double getCharge(int daysRented) {
-		double thisAmount = 0;
-		switch (getPriceCode()) {
-		case Movie.REGULAR:
-			thisAmount += 2;
-			if (daysRented > 2)
-				thisAmount += (daysRented - 2) * 1.5;
-			break;
-		case Movie.NEW_RELEASE:
-			thisAmount += daysRented * 3;
-			break;
-		case Movie.CHILDRENS:
-			thisAmount += 1.5;
-			if (daysRented > 3)
-				thisAmount += (daysRented - 3) * 1.5;
-			break;
-		}
-		return thisAmount;
+		return myPrice.getPrice(daysRented);
 	}
 
 	/**
@@ -71,7 +69,8 @@ public class Movie {
 	};
 
 	boolean isSpecialPointsPolicy(Rental rental) {
-		return (getPriceCode() == Movie.NEW_RELEASE)
+		
+		return (myPrice instanceof NewReleasePrice)
 				&& rental.getDaysRented() > 1;
 	}
 
