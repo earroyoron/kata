@@ -28,8 +28,7 @@ class Customer {
 		for (Rental each : _rentals) {
 			frequentRenterPoints += each.getFrequentRentalPoints();
 			// show figures for this rental
-			result += "\t" + each.getMovie().getTitle() + "\t"
-					+ String.valueOf(each.getCharge()) + "\n";
+			result = each.showFiguresForRental(result);
 			totalAmount += each.getCharge();
 		}
 		// add footer lines
@@ -39,6 +38,5 @@ class Customer {
 		return result;
 	}
 
-	
 }
 

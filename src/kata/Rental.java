@@ -59,4 +59,10 @@ class Rental {
 		return (getMovie().getPriceCode() == Movie.NEW_RELEASE)
 				&& getDaysRented() > 1;
 	}
+
+	String showFiguresForRental(String result) {
+		result += "\t" + getMovie().getTitle() + "\t"
+				+ String.valueOf(getCharge()) + "\n";
+		return result;
+	}
 }
