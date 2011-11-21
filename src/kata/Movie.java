@@ -5,39 +5,16 @@ package kata;
  *
  */
 public class Movie {
-	Price myPrice;
-	
-	public static final int CHILDRENS = 2;
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
+	private Price myPrice;	
 	private String _title;
-	private int _priceCode;
 
-	public Movie(String title, int priceCode) {
+	public Movie(String title, Price priceCode) {
 		_title = title;
-		setPriceCode(priceCode);
+		myPrice = priceCode;
 	}
 
 	public void setPriceCode(Price _price) {
 		myPrice = _price;
-	}
-	
-	public int getPriceCode() {
-		return _priceCode;
-	}
-
-	public void setPriceCode(int aPrice) {
-		switch (aPrice) {
-		case Movie.REGULAR:
-			myPrice = new RegularPrice();
-			break;
-		case Movie.NEW_RELEASE:
-			myPrice = new NewReleasePrice();
-			break;
-		case Movie.CHILDRENS:
-			myPrice = new ChildrensPrice();
-			break;
-		}
 	}
 
 	public String getTitle() {
